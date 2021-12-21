@@ -7,5 +7,27 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/client" />
+          <root url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/yarn" />
+          <root url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/common" />
+          <root url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/hdfs" />
+          <root url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/mapreduce" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/common/jdiff" />
+          <root url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/hdfs/jdiff" />
+          <root url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/mapreduce/jdiff" />
+        </SOURCES>
+        <jarDirectory url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/client" recursive="false" />
+        <jarDirectory url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/common" recursive="false" />
+        <jarDirectory url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/hdfs" recursive="false" />
+        <jarDirectory url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/mapreduce" recursive="false" />
+        <jarDirectory url="file:///usr/local/Cellar/hadoop/3.3.1/libexec/share/hadoop/yarn" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>
