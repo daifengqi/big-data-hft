@@ -8,7 +8,7 @@ public class read {
         try {
             Configuration conf = new Configuration();
 
-            conf.addResource(new Path("D:/Software/hadoop-3.1.4/etc/hadoop/core-site.xml"));
+            conf.addResource(new Path("../resources/core-site.xml"));
 
             Path path = new Path("/file_8MB.txt");
             FileSystem fs = path.getFileSystem(conf);

@@ -21,11 +21,11 @@ public class DataAnalysisDriver {
         // Specify formats of the data type of Input and output
         jobConf.setInputFormat(TextInputFormat.class);
         jobConf.setOutputFormat(TextOutputFormat.class);
-        // Set input and output directories using command line arguments,
-        //arg[0] = name of input directory on HDFS, and arg[1] = name of
-        // output directory to be created to store the output file.
-        FileInputFormat.setInputPaths(jobConf, new Path(args[0]));
-        FileOutputFormat.setOutputPath(jobConf, new Path(args[1]));
+
+        // set input and output
+        FileInputFormat.setInputPaths(jobConf, new Path("../resources/PRSA_Data_20130301-20170228"));
+        FileOutputFormat.setOutputPath(jobConf, new Path("../resource/output"));
+
         myClient.setConf(jobConf);
         try {
             // Run the job

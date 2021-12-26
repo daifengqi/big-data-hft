@@ -12,7 +12,7 @@ public class download {
     public static void main(String[] args) {
         try {
             Configuration conf = new Configuration();
-            conf.addResource(new Path("D:/Software/hadoop-3.1.4/etc/hadoop/core-site.xml"));
+            conf.addResource(new Path("../resources/core-site.xml"));
 
             Path path = new Path("/airQuality.zip");
             Path targetPath = new Path("data/airQuality.zip");
