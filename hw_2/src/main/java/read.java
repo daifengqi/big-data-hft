@@ -17,7 +17,6 @@ public class read {
             long fileSize = status.getLen();
             System.out.println("(1). The size of the file: " + fileSize /(1024 * 1024) + "mb");
 
-
             long blockSize = status.getBlockSize();
             long blockNumToStore = fileSize / blockSize + 1;
             System.out.println("(2). We need " + blockNumToStore + " blocks to store the file.");

@@ -12,8 +12,6 @@
         <defaultGoal>compile</defaultGoal>
 
 
-
-
     </build>
 
 
@@ -24,11 +22,11 @@
 
     <dependencies>
 
-        <!--        <dependency>-->
-        <!--            <groupId>org.slf4j</groupId>-->
-        <!--            <artifactId>slf4j-log4j12</artifactId>-->
-        <!--            <version>1.7.26</version>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.26</version>
+        </dependency>
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
@@ -50,7 +48,6 @@
             <artifactId>commons-compress</artifactId>
             <version>1.19</version>
         </dependency>
-
 
 
     </dependencies>

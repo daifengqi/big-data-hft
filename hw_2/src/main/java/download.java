@@ -29,7 +29,8 @@ public class download {
                 System.out.println("file name is:");
                 System.out.println(file.getName());
                 System.out.println("file path is:");
-                System.out.println(file.toString());
+                System.out.println(file.getPath());
+                System.out.println(file.getAbsolutePath());
                 System.out.println("first 5 lines:");
                 BufferedReader br = new BufferedReader(new FileReader(file.toString()));
                 for (int i=0; i<=5; i++){

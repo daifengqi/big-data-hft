@@ -19,24 +19,24 @@ public class upload {
 
             conf.addResource(new Path("../resources/core-site.xml"));
 
+            String localDir = "data/Group2_fileSize_6MB/file.pdf";
+            String hdfsDir = "Group2/Group2_fileSize_6.6MB";
 
-            String localDir = "D:\\github代码\\big-data-hft\\hw_2\\data/Group2_fileSize_6MB/file.pdf";
-            String hdfsDir = "Group2_fileSize_6.6MB";
-
-            //upload file
+            // upload file
             Path localPath = new Path(localDir);
             Path hdfsPath = new Path(hdfsDir);
             FileSystem hdfs = FileSystem.get(conf);
             hdfs.copyFromLocalFile(localPath, hdfsPath);
 
-            //write information
+            // write information
             Date date = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String createdate = sdf.format(date);
             FileSystem fs = FileSystem.get(conf);
             byte[] buff = ("Zijie Wang \nYemeng Jie\nLiwen Pang\nDaifeng Qi\nQiang Yin\nXinran Guo\n"+createdate).getBytes();
-            String filename = "/Group2_fileSize_6.6MB/head.txt";
-            FSDataOutputStream os = fs.append(new Path(filename));
+            String filename = "/Group2/Group2_fileSize_6.6MB/head.txt";
+
+            FSDataOutputStream os = fs.create(new Path(filename));
             os.write(buff,0,buff.length);
             System.out.println("Creat:"+ hdfsDir);
             System.out.println("----------------");
