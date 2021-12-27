@@ -7,6 +7,7 @@ import java.sql.Driver;
 
 public class DataAnalysisDriver {
     public static void main(String[] args) {
+
         JobClient myClient = new JobClient();
         // Create a configuration object for the job
         JobConf jobConf = new JobConf(Driver.class);
@@ -23,8 +24,8 @@ public class DataAnalysisDriver {
         jobConf.setOutputFormat(TextOutputFormat.class);
 
         // set input and output
-        FileInputFormat.setInputPaths(jobConf, new Path("../resources/PRSA_Data_20130301-20170228"));
-        FileOutputFormat.setOutputPath(jobConf, new Path("../resource/output"));
+        FileInputFormat.setInputPaths(jobConf, new Path("/Group2/data"));
+        FileOutputFormat.setOutputPath(jobConf, new Path("/Group2/output"));
 
         myClient.setConf(jobConf);
         try {

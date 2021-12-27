@@ -19,7 +19,8 @@ public class DataAnalysisMapper extends Mapper<Object, Text, Text, IntWritable> 
     private final static IntWritable one = new IntWritable(1);
 
     public void map(Object key, Text value, OutputCollector<Text, IntWritable> output) throws IOException, InterruptedException {
-        // 数据预处理：如果是表头（key是0），不处理；如果PM2.5的值是Nan，不处理；直接返回
+        // 数据预处理：如果是表头（key是0），不处理；
+        // 如果PM2.5的值是Nan，不处理；
         if (key.toString().equals("0"))
             return;
         String[] oneRecord = value.toString().split(",");
@@ -35,11 +36,11 @@ public class DataAnalysisMapper extends Mapper<Object, Text, Text, IntWritable> 
         Text mediumTime = new Text(time + "_medium");
         Text badTime = new Text(time + "_bad");
 
-        //For Q2：记录output的key，“station_fine”
+        // For Q2：记录output的key，“station_fine”
         Text stationFine = new Text(station + "_fine");
         Text stationBad = new Text(station + "_bad");
 
-        //对雨PM25的值进行判断，将对应Q1 Q2的output写入context中
+        // 对PM25的值进行判断，将对应Q1 Q2的output写入context中
         if (PM25 <= 35) {
             output.collect(goodTime, one);
             output.collect(stationFine, one);
