@@ -1,24 +1,17 @@
 // The following is a map process
 
 import java.io.IOException;
-import java.util.StringTokenizer;
-
-import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapred.MapReduceBase;
 import org.apache.hadoop.mapred.OutputCollector;
-import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.yarn.webapp.hamlet2.Hamlet;
+import org.apache.hadoop.mapred.Reporter;
 
 
-public class DataAnalysisMapper extends Mapper<Object, Text, Text, IntWritable> {
+public class Mapper extends MapReduceBase implements org.apache.hadoop.mapred.Mapper<Object, Text, Text, IntWritable> {
     private final static IntWritable one = new IntWritable(1);
 
-    public void map(Object key, Text value, OutputCollector<Text, IntWritable> output) throws IOException, InterruptedException {
+    public void map(Object key, Text value, OutputCollector<Text, IntWritable> output, Reporter reporter) throws IOException {
         // 数据预处理：如果是表头（key是0），不处理；
         // 如果PM2.5的值是Nan，不处理；
         if (key.toString().equals("0"))
@@ -29,9 +22,9 @@ public class DataAnalysisMapper extends Mapper<Object, Text, Text, IntWritable> 
             return;
 
         // For Q1：记录output的key：“年_月_日_小时_good(medium/bad)”
-        String time = String.format("%s_%s_%s_%s", oneRecord[1].toString(), oneRecord[2].toString(), oneRecord[3].toString(), oneRecord[4].toString());
+        String time = String.format("%s_%s_%s_%s", oneRecord[1], oneRecord[2], oneRecord[3], oneRecord[4]);
         String station = oneRecord[17];
-        Double PM25 = Double.valueOf(oneRecord[5].toString());
+        Double PM25 = Double.valueOf(oneRecord[5]);
         Text goodTime = new Text(time + "_good");
         Text mediumTime = new Text(time + "_medium");
         Text badTime = new Text(time + "_bad");
