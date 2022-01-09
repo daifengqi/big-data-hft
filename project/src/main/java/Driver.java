@@ -1,4 +1,5 @@
 // The following is the driver
+
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapred.*;
@@ -13,7 +14,7 @@ public class Driver {
         jobConf.setJobName("Big_Data_Project");
         // Specify map type
         jobConf.setMapOutputKeyClass(Text.class);
-        jobConf.setMapOutputValueClass(IntWritable.class);
+        jobConf.setMapOutputValueClass(DoubleWritable.class);
         // Specify data type of output key and value
         jobConf.setOutputKeyClass(Text.class);
         jobConf.setOutputValueClass(DoubleWritable.class);
@@ -25,8 +26,8 @@ public class Driver {
         jobConf.setOutputFormat(TextOutputFormat.class);
 
         // set input and output
-        FileInputFormat.setInputPaths(jobConf, new Path("/tickData/tickData"));
-        FileOutputFormat.setOutputPath(jobConf, new Path("/Group2/tickDataOutput"));
+        FileInputFormat.setInputPaths(jobConf, new Path("/tickData/tickData/201901"));
+        FileOutputFormat.setOutputPath(jobConf, new Path("/Group2/tickDataOutput/201901"));
 
         myClient.setConf(jobConf);
         try {
