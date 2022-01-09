@@ -26,8 +26,8 @@ public class Driver {
         jobConf.setOutputFormat(TextOutputFormat.class);
 
         // set input and output
-        FileInputFormat.setInputPaths(jobConf, new Path("/tickData/tickData/201901"));
-        FileOutputFormat.setOutputPath(jobConf, new Path("/Group2/tickDataOutput/201901"));
+        FileInputFormat.setInputPaths(jobConf, new Path("/tickData/tickData/201902"));
+        FileOutputFormat.setOutputPath(jobConf, new Path("/Group2/tickDataOutput/201902"));
 
         myClient.setConf(jobConf);
         try {
