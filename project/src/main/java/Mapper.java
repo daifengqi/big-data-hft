@@ -12,6 +12,7 @@ import org.apache.hadoop.mapred.Reporter;
 public class Mapper extends MapReduceBase implements org.apache.hadoop.mapred.Mapper<Object, Text, Text, DoubleWritable> {
 
     private final static DoubleWritable one = new DoubleWritable(1);
+    /* hashmap */
 
     public void map(Object key, Text value, OutputCollector<Text, DoubleWritable> output, Reporter reporter) throws IOException {
 

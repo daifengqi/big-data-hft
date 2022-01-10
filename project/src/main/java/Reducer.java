@@ -28,8 +28,8 @@ public class Reducer extends MapReduceBase implements org.apache.hadoop.mapred.R
                     low = val;
                 }
             }
-            output.collect(new Text(key.toString() + "#High"), new DoubleWritable(high));
-            output.collect(new Text(key.toString() + "#Low"), new DoubleWritable(low));
+            output.collect(new Text(key.toString() + "-High"), new DoubleWritable(high));
+            output.collect(new Text(key.toString() + "-Low"), new DoubleWritable(low));
         } else if (key.toString().endsWith("#Qty")) {
             while (values.hasNext()) {
                 DoubleWritable value = values.next();

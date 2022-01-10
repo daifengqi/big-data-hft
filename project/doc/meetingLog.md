@@ -1,4 +1,14 @@
-# 2022-01-08
+## 2022-01-10
+
+TODO:
+
+1. `Java`，MapReduce 的逻辑修改，在Mapper里判断出open，close，high，low的价格
+2. `Java`，Driver 的 setInputPaths 划分成文件的维度，预期输出也是多个文件
+3. `Python`，Reduce 之后的数据预处理
+
+
+
+## 2022-01-08
 
 proj内容分工--T1的10：00~T2的10：00预测
 
