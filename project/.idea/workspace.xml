@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cb4e09b-de34-4187-9e67-1e232bf97a14" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/python/1-preprocess.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Reducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Reducer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +92,9 @@
       <option name="presentableId" value="Default" />
       <updated>1641713552554</updated>
       <workItem from="1641713554076" duration="12240000" />
-      <workItem from="1641792674248" duration="1607000" />
+      <workItem from="1641792674248" duration="2128000" />
+      <workItem from="1641797815008" duration="405000" />
+      <workItem from="1641913424606" duration="4400000" />
     </task>
     <servers />
   </component>

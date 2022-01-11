@@ -5,6 +5,8 @@ import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapred.*;
 
 public class Driver {
+
+
     public static void main(String[] args) {
 
         JobClient myClient = new JobClient();
@@ -26,8 +28,8 @@ public class Driver {
         jobConf.setOutputFormat(TextOutputFormat.class);
 
         // set input and output
-        FileInputFormat.setInputPaths(jobConf, new Path("/tickData/tickData/201903"));
-        FileOutputFormat.setOutputPath(jobConf, new Path("/Group2/tickDataOutput/201903"));
+        FileInputFormat.setInputPaths(jobConf, new Path("/tickData/tickData/201901/20190102.csv"));
+        FileOutputFormat.setOutputPath(jobConf, new Path("/Group2/tickDataOutput/201901/20190102.csv"));
 
         myClient.setConf(jobConf);
         try {

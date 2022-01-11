@@ -1,45 +1,96 @@
 // The following is a map process
 
-import java.io.IOException;
+import java.util.HashMap;
 
 import org.apache.hadoop.io.DoubleWritable;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.MapReduceBase;
 import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reporter;
 
+class Recorder {
+    public int mintime;
+    public int maxtime;
+    public double open;
+    public double close;
+    public double high;
+    public double low;
+
+    Recorder(int mintimeIn, int maxtimeIn, double openIn, double closeIn, double highIn, double lowIn) {
+        mintime = mintimeIn;
+        maxtime = maxtimeIn;
+        open = openIn;
+        close = closeIn;
+        high = highIn;
+        low = lowIn;
+    }
+}
+
 public class Mapper extends MapReduceBase implements org.apache.hadoop.mapred.Mapper<Object, Text, Text, DoubleWritable> {
 
     private final static DoubleWritable one = new DoubleWritable(1);
     /* hashmap */
+    private static final HashMap<String, Recorder> map = new HashMap<>();
+    /* idea: count how many times each key appears, read into memory as a map.
+    *        when count is reached, then collect the data.*/
 
-    public void map(Object key, Text value, OutputCollector<Text, DoubleWritable> output, Reporter reporter) throws IOException {
+    public void map(Object key, Text value, OutputCollector<Text, DoubleWritable> output, Reporter reporter) {
 
         try {
             String[] oneRecord = value.toString().split(",");
 
-            // 列1：证券代码
+            // col1: SecurityID
             String SecurityID = oneRecord[0];
 
-            // 列2：成交时间
+            // col2: TradeTime
             String TradeTimeRaw = oneRecord[1];
-            String TradeTime = TradeTimeRaw.substring(4, 12); // remove year (2019), include minute; finally 8 digits
+            String TradeTime = TradeTimeRaw.substring(12); // include minute only
 
-            // 列3：成交价格
+            // col3: TradePrice
             double TradePrice = Double.parseDouble(oneRecord[2]);
 
-            // 列4：成交量
+            // update price data in hashmap
+            if (map.containsKey(TradeTime)) {
+                Recorder inner = map.get(TradeTime);
+                /* update open price */
+                if (Integer.parseInt(TradeTimeRaw) < inner.mintime) {
+                    inner.mintime = Integer.parseInt(TradeTimeRaw);
+                    inner.open = TradePrice;
+                }
+                /* update close price */
+                if (Integer.parseInt(TradeTimeRaw) > inner.maxtime) {
+                    inner.maxtime = Integer.parseInt(TradeTimeRaw);
+                    inner.close = TradePrice;
+                }
+                /* update high price */
+                if (TradePrice > inner.high) {
+                    inner.high = TradePrice;
+                }
+                /* update low price */
+                if (TradePrice < inner.low) {
+                    inner.low = TradePrice;
+                }
+            } else {
+                map.put(TradeTime, new Recorder(Integer.parseInt(TradeTimeRaw),
+                        Integer.parseInt(TradeTimeRaw),
+                        TradePrice,
+                        TradePrice,
+                        TradePrice,
+                        TradePrice));
+            }
+
+            // col4: TradeQty
             double TradeQty = Double.parseDouble(oneRecord[3]);
 
-            // 列5：成交金额 = TradePrice（成交价格） * TradeQty（成交量）
+            // col5：TradeAmount = TradePrice * TradeQty
             double TradeAmount = Double.parseDouble(oneRecord[4]);
 
-            // key：证券代码 + 成交时间 + ""
+            // key
             output.collect(new Text(SecurityID + '#' + TradeTime), one);
             output.collect(new Text(SecurityID + '#' + TradeTime + "#Price"), new DoubleWritable(TradePrice));
             output.collect(new Text(SecurityID + '#' + TradeTime + "#Qty"), new DoubleWritable(TradeQty));
             output.collect(new Text(SecurityID + '#' + TradeTime + "#Amount"), new DoubleWritable(TradeAmount));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
