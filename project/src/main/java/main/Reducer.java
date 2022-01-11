@@ -1,3 +1,5 @@
+package main;
+
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -17,27 +19,38 @@ public class Reducer extends MapReduceBase implements org.apache.hadoop.mapred.R
         double vwap = 0;
         double amount = 0;
 
-        if (key.toString().endsWith("#Price")) {
+        if (key.toString().endsWith(Mapper.OpenIdentifier)) {
             while (values.hasNext()) {
                 DoubleWritable value = values.next();
                 double val = Double.parseDouble(String.valueOf(value));
-                if (val > high) {
-                    high = val;
-                }
-                if (val < low) {
-                    low = val;
-                }
+                output.collect(new Text(key + Mapper.OpenIdentifier), new DoubleWritable(val));
             }
-            output.collect(new Text(key.toString() + "-High"), new DoubleWritable(high));
-            output.collect(new Text(key.toString() + "-Low"), new DoubleWritable(low));
-        } else if (key.toString().endsWith("#Qty")) {
+        } else if (key.toString().endsWith(Mapper.CloseIdentifier)) {
+            while (values.hasNext()) {
+                DoubleWritable value = values.next();
+                double val = Double.parseDouble(String.valueOf(value));
+                output.collect(new Text(key + Mapper.CloseIdentifier), new DoubleWritable(val));
+            }
+        } else if (key.toString().endsWith(Mapper.HighIdentifier)) {
+            while (values.hasNext()) {
+                DoubleWritable value = values.next();
+                double val = Double.parseDouble(String.valueOf(value));
+                output.collect(new Text(key + Mapper.HighIdentifier), new DoubleWritable(val));
+            }
+        } else if (key.toString().endsWith(Mapper.LowIdentifier)) {
+            while (values.hasNext()) {
+                DoubleWritable value = values.next();
+                double val = Double.parseDouble(String.valueOf(value));
+                output.collect(new Text(key + Mapper.LowIdentifier), new DoubleWritable(val));
+            }
+        } else if (key.toString().endsWith(Mapper.QtyIdentifier)) {
             while (values.hasNext()) {
                 DoubleWritable value = values.next();
                 double val = Double.parseDouble(String.valueOf(value));
                 vwap += val;
             }
             output.collect(new Text(key.toString()), new DoubleWritable(vwap));
-        } else if (key.toString().endsWith("#Amount")) {
+        } else if (key.toString().endsWith(Mapper.AmountIdentifier)) {
             while (values.hasNext()) {
                 DoubleWritable value = values.next();
                 double val = Double.parseDouble(String.valueOf(value));
@@ -49,7 +62,7 @@ public class Reducer extends MapReduceBase implements org.apache.hadoop.mapred.R
                 DoubleWritable _value = values.next();
                 count += 1;
             }
-            output.collect(new Text(key.toString() + "#Count"), new DoubleWritable(count));
+            output.collect(new Text(key.toString()), new DoubleWritable(count));
         }
     }
 }

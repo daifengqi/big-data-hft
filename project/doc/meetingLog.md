@@ -3,7 +3,7 @@
 TODO:
 
 1. `Java`，MapReduce 的逻辑修改，在Mapper里判断出open，close，high，low的价格
-2. `Java`，Driver 的 setInputPaths 划分成文件的维度，预期输出也是多个文件
+2. `Java`，main.Driver 的 setInputPaths 划分成文件的维度，预期输出也是多个文件
 3. `Python`，Reduce 之后的数据预处理
 
 

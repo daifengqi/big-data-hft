@@ -1,15 +1,15 @@
-## Preview
+## main.Preview
 
-Run `Preview` to see the raw `.csv` trading data.
+Run `main.Preview` to see the raw `.csv` trading data.
 
 
 
 ## Map Reduce
 
-Run `Driver` to complete `map-reduce` work, change input file via  `setInputPaths` parameter.
+Run `main.Driver` to complete `map-reduce` work, change input file via  `setInputPaths` parameter.
 
 
 
-## Fetch
+## main.Fetch
 
-Run `Fetch` to see map reduce result.
+Run `main.Fetch` to see map reduce result.

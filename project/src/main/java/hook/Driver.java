@@ -1,4 +1,4 @@
-// The following is the driver
+package hook;// The following is the driver
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.*;
@@ -6,6 +6,9 @@ import org.apache.hadoop.mapred.*;
 
 public class Driver {
 
+    public static String file = "201901/20190102.csv";
+    public static Path inputPath = new Path("/tickData/tickData/" + file);
+    public static Path outputPath = new Path("/Group2/tickKeyCount/" + file);
 
     public static void main(String[] args) {
 
@@ -20,7 +23,7 @@ public class Driver {
         // Specify data type of output key and value
         jobConf.setOutputKeyClass(Text.class);
         jobConf.setOutputValueClass(DoubleWritable.class);
-        // Specify names of Mapper and Reducer Class
+        // Specify names of main.Mapper and main.Reducer Class
         jobConf.setMapperClass(Mapper.class);
         jobConf.setReducerClass(Reducer.class);
         // Specify formats of the data type of Input and output
@@ -28,8 +31,8 @@ public class Driver {
         jobConf.setOutputFormat(TextOutputFormat.class);
 
         // set input and output
-        FileInputFormat.setInputPaths(jobConf, new Path("/tickData/tickData/201901/20190102.csv"));
-        FileOutputFormat.setOutputPath(jobConf, new Path("/Group2/tickDataOutput/201901/20190102.csv"));
+        FileInputFormat.setInputPaths(jobConf, inputPath);
+        FileOutputFormat.setOutputPath(jobConf, outputPath);
 
         myClient.setConf(jobConf);
         try {

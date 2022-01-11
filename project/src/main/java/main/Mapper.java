@@ -1,4 +1,4 @@
-// The following is a map process
+package main;// The following is a map process
 
 import java.util.HashMap;
 
@@ -15,6 +15,7 @@ class Recorder {
     public double close;
     public double high;
     public double low;
+    public int count;
 
     Recorder(int mintimeIn, int maxtimeIn, double openIn, double closeIn, double highIn, double lowIn) {
         mintime = mintimeIn;
@@ -23,12 +24,22 @@ class Recorder {
         close = closeIn;
         high = highIn;
         low = lowIn;
+        count = 1;
     }
 }
 
 public class Mapper extends MapReduceBase implements org.apache.hadoop.mapred.Mapper<Object, Text, Text, DoubleWritable> {
 
     private final static DoubleWritable one = new DoubleWritable(1);
+    public final static String OpenIdentifier = new String("$Open");
+    public final static String CloseIdentifier = new String("$Close");
+    public final static String HighIdentifier = new String("$High");
+    public final static String LowIdentifier = new String("$Low");
+
+    public final static String QtyIdentifier = new String("$Qty");
+    public final static String AmountIdentifier = new String("$Amount");
+    public final static String CountIdentifier = new String("$Count");
+
     /* hashmap */
     private static final HashMap<String, Recorder> map = new HashMap<>();
     /* idea: count how many times each key appears, read into memory as a map.
@@ -51,7 +62,10 @@ public class Mapper extends MapReduceBase implements org.apache.hadoop.mapred.Ma
 
             // update price data in hashmap
             if (map.containsKey(TradeTime)) {
+
                 Recorder inner = map.get(TradeTime);
+                inner.count++;
+
                 /* update open price */
                 if (Integer.parseInt(TradeTimeRaw) < inner.mintime) {
                     inner.mintime = Integer.parseInt(TradeTimeRaw);
@@ -85,11 +99,19 @@ public class Mapper extends MapReduceBase implements org.apache.hadoop.mapred.Ma
             // col5：TradeAmount = TradePrice * TradeQty
             double TradeAmount = Double.parseDouble(oneRecord[4]);
 
-            // key
-            output.collect(new Text(SecurityID + '#' + TradeTime), one);
-            output.collect(new Text(SecurityID + '#' + TradeTime + "#Price"), new DoubleWritable(TradePrice));
-            output.collect(new Text(SecurityID + '#' + TradeTime + "#Qty"), new DoubleWritable(TradeQty));
-            output.collect(new Text(SecurityID + '#' + TradeTime + "#Amount"), new DoubleWritable(TradeAmount));
+            if (map.containsKey(TradeTime)) {
+                Recorder inner = map.get(TradeTime);
+                if (inner.count == Driver.keyCountMap.get(TradeTime)) {
+                    output.collect(new Text(SecurityID + '#' + TradeTime + OpenIdentifier), new DoubleWritable(inner.open));
+                    output.collect(new Text(SecurityID + '#' + TradeTime + CloseIdentifier), new DoubleWritable(inner.close));
+                    output.collect(new Text(SecurityID + '#' + TradeTime + LowIdentifier), new DoubleWritable(inner.low));
+                    output.collect(new Text(SecurityID + '#' + TradeTime + HighIdentifier), new DoubleWritable(inner.high));
+                }
+            }
+
+            output.collect(new Text(SecurityID + '#' + TradeTime + CountIdentifier), one);
+            output.collect(new Text(SecurityID + '#' + TradeTime + QtyIdentifier), new DoubleWritable(TradeQty));
+            output.collect(new Text(SecurityID + '#' + TradeTime + AmountIdentifier), new DoubleWritable(TradeAmount));
 
         } catch (Exception e) {
             e.printStackTrace();
