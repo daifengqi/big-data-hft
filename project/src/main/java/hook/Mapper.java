@@ -20,7 +20,7 @@ public class Mapper extends MapReduceBase implements org.apache.hadoop.mapred.Ma
             String SecurityID = oneRecord[0];
 
             String TradeTimeRaw = oneRecord[1];
-            String TradeTime = TradeTimeRaw.substring(12); // include minute only
+            String TradeTime = TradeTimeRaw.substring(0, 12); // include minute only
 
             // key
             output.collect(new Text(SecurityID + '#' + TradeTime), one);

@@ -9,12 +9,16 @@ import java.util.HashMap;
 public class Driver {
 
     public static final HashMap<String, Double> keyCountMap = new HashMap<>();
+    public static String file = "20190102.csv";
 
-    public void init() {
-        // ... read the csv and record the count
+    public static void init() {
+        main.Opencsv.readDataLineByLine("src/main/resources/" + file);
     }
 
     public static void main(String[] args) {
+
+        // set the map
+        Driver.init();
 
         JobClient myClient = new JobClient();
         // Create a configuration object for the job
@@ -35,7 +39,7 @@ public class Driver {
         jobConf.setOutputFormat(TextOutputFormat.class);
 
         // set input and output
-        FileInputFormat.setInputPaths(jobConf, new Path("/tickData/tickData/201901/20190102.csv"));
+        FileInputFormat.setInputPaths(jobConf, hook.Driver.inputPath);
         FileOutputFormat.setOutputPath(jobConf, new Path("/Group2/tickDataOutput/201901/20190102.csv"));
 
         myClient.setConf(jobConf);

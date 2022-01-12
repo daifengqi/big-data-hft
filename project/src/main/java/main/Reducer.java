@@ -14,8 +14,6 @@ public class Reducer extends MapReduceBase implements org.apache.hadoop.mapred.R
 
     public void reduce(Text key, Iterator<DoubleWritable> values, OutputCollector<Text, DoubleWritable> output, Reporter reporter) throws IOException {
         double count = 0;
-        double high = -1;
-        double low = 1e9;
         double vwap = 0;
         double amount = 0;
 

@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cb4e09b-de34-4187-9e67-1e232bf97a14" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hook/Driver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hook/Fetch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hook/Mapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hook/Reducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/Opencsv.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/meetingLog.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/meetingLog.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Fetch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Fetch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Preview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Preview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Reducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Reducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hook/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hook/Mapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Reducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Reducer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +57,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.13648649" />
   </component>
-  <component name="RunManager" selected="Application.Driver">
+  <component name="RunManager" selected="Application.Opencsv">
     <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Driver" />
       <module name="project" />
@@ -78,6 +72,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Opencsv" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Opencsv" />
+      <module name="project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Preview" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Preview" />
       <module name="project" />
@@ -85,19 +92,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Opencsv" />
         <item itemvalue="Application.Driver" />
         <item itemvalue="Application.Fetch" />
         <item itemvalue="Application.Preview" />
@@ -115,7 +125,8 @@
       <workItem from="1641713554076" duration="12240000" />
       <workItem from="1641792674248" duration="2128000" />
       <workItem from="1641797815008" duration="405000" />
-      <workItem from="1641913424606" duration="6083000" />
+      <workItem from="1641913424606" duration="6869000" />
+      <workItem from="1641988327594" duration="2037000" />
     </task>
     <servers />
   </component>
