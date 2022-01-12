@@ -7,7 +7,7 @@
 3. 将 `big-data-hft/tickKeyCount/20190102.csv/part-00000`，重命名为`20190102.csv`，放到`big-data-hft/project/src/main/resources/`文件夹里
 4. 修改 main/Driver 里的 `file` 为同样的名字 `20190102.csv`
 5. run main/Driver，成功后，再 run main/Fetch，取到第二次mapreduce的结果
-6. 结果在`big-data-hft/tickDataOutput` 文件夹里，同样重命名为csv文件就可以使用了，这就final的文件。
+6. 结果在`big-data-hft/tickDataOutput` 文件夹里，同样重命名为csv文件就可以使用了，这就是final的文件了。
 
 
 
