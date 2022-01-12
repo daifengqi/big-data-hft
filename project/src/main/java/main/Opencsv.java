@@ -22,19 +22,13 @@ public class Opencsv {
             String[] nextRecord;
 
             while ((nextRecord = csvReader.readNext()) != null) {
-                boolean flag = true;
-                String key = "foo";
-                double value = 1;
                 for (String cell : nextRecord) {
-                    if (flag) {
-                        key = cell;
-                    } else {
-                        value = Double.parseDouble(cell);
-                    }
-                    flag = !flag;
-                    if (!flag) {
-                        Driver.keyCountMap.put(key, value);
-                    }
+                    System.out.println("cell" + cell);
+                    String key = cell.substring(0, 19);
+                    String value = cell.substring(20);
+                    System.out.println("key" + key);
+                    System.out.println("value" + value);
+                    Driver.keyCountMap.put(key, Double.parseDouble(value));
                 }
             }
 

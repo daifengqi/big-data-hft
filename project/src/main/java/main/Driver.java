@@ -40,7 +40,7 @@ public class Driver {
 
         // set input and output
         FileInputFormat.setInputPaths(jobConf, hook.Driver.inputPath);
-        FileOutputFormat.setOutputPath(jobConf, new Path("/Group2/tickDataOutput/201901/20190102.csv"));
+        FileOutputFormat.setOutputPath(jobConf, new Path("/Group2/tickDataOutput/" + file));
 
         myClient.setConf(jobConf);
         try {

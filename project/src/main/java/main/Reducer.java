@@ -21,25 +21,26 @@ public class Reducer extends MapReduceBase implements org.apache.hadoop.mapred.R
             while (values.hasNext()) {
                 DoubleWritable value = values.next();
                 double val = Double.parseDouble(String.valueOf(value));
-                output.collect(new Text(key + Mapper.OpenIdentifier), new DoubleWritable(val));
+                output.collect(new Text(key), new DoubleWritable(val));
             }
+
         } else if (key.toString().endsWith(Mapper.CloseIdentifier)) {
             while (values.hasNext()) {
                 DoubleWritable value = values.next();
                 double val = Double.parseDouble(String.valueOf(value));
-                output.collect(new Text(key + Mapper.CloseIdentifier), new DoubleWritable(val));
+                output.collect(new Text(key), new DoubleWritable(val));
             }
         } else if (key.toString().endsWith(Mapper.HighIdentifier)) {
             while (values.hasNext()) {
                 DoubleWritable value = values.next();
                 double val = Double.parseDouble(String.valueOf(value));
-                output.collect(new Text(key + Mapper.HighIdentifier), new DoubleWritable(val));
+                output.collect(new Text(key), new DoubleWritable(val));
             }
         } else if (key.toString().endsWith(Mapper.LowIdentifier)) {
             while (values.hasNext()) {
                 DoubleWritable value = values.next();
                 double val = Double.parseDouble(String.valueOf(value));
-                output.collect(new Text(key + Mapper.LowIdentifier), new DoubleWritable(val));
+                output.collect(new Text(key), new DoubleWritable(val));
             }
         } else if (key.toString().endsWith(Mapper.QtyIdentifier)) {
             while (values.hasNext()) {
@@ -55,7 +56,7 @@ public class Reducer extends MapReduceBase implements org.apache.hadoop.mapred.R
                 amount += val;
             }
             output.collect(new Text(key.toString()), new DoubleWritable(amount));
-        } else {
+        } else if (key.toString().endsWith(Mapper.CountIdentifier)){
             while (values.hasNext()) {
                 DoubleWritable _value = values.next();
                 count += 1;

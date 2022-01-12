@@ -9,22 +9,22 @@ import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reporter;
 
 class Recorder {
-    public int mintime;
-    public int maxtime;
+    public double mintime;
+    public double maxtime;
     public double open;
     public double close;
     public double high;
     public double low;
     public int count;
 
-    Recorder(int mintimeIn, int maxtimeIn, double openIn, double closeIn, double highIn, double lowIn) {
-        mintime = mintimeIn;
-        maxtime = maxtimeIn;
-        open = openIn;
-        close = closeIn;
-        high = highIn;
-        low = lowIn;
-        count = 1;
+    Recorder(double mintimeIn, double maxtimeIn, double openIn, double closeIn, double highIn, double lowIn) {
+        this.mintime = mintimeIn;
+        this.maxtime = maxtimeIn;
+        this.open = openIn;
+        this.close = closeIn;
+        this.high = highIn;
+        this.low = lowIn;
+        this.count = 1;
     }
 }
 
@@ -55,25 +55,27 @@ public class Mapper extends MapReduceBase implements org.apache.hadoop.mapred.Ma
 
             // col2: TradeTime
             String TradeTimeRaw = oneRecord[1];
-            String TradeTime = TradeTimeRaw.substring(12); // include minute only
+            String TradeTime = TradeTimeRaw.substring(0, 12); // include minute only
 
             // col3: TradePrice
             double TradePrice = Double.parseDouble(oneRecord[2]);
 
-            // update price data in hashmap
-            if (map.containsKey(TradeTime)) {
+            String mapKey = SecurityID + '#' + TradeTime;
 
-                Recorder inner = map.get(TradeTime);
-                inner.count++;
+            // update price data in hashmap
+            if (map.containsKey(mapKey)) {
+
+                Recorder inner = map.get(mapKey);
+                inner.count = inner.count + 1;
 
                 /* update open price */
-                if (Integer.parseInt(TradeTimeRaw) < inner.mintime) {
-                    inner.mintime = Integer.parseInt(TradeTimeRaw);
+                if (Double.parseDouble(TradeTimeRaw) < inner.mintime) {
+                    inner.mintime = Double.parseDouble(TradeTimeRaw);
                     inner.open = TradePrice;
                 }
                 /* update close price */
-                if (Integer.parseInt(TradeTimeRaw) > inner.maxtime) {
-                    inner.maxtime = Integer.parseInt(TradeTimeRaw);
+                if (Double.parseDouble(TradeTimeRaw) > inner.maxtime) {
+                    inner.maxtime = Double.parseDouble(TradeTimeRaw);
                     inner.close = TradePrice;
                 }
                 /* update high price */
@@ -85,8 +87,8 @@ public class Mapper extends MapReduceBase implements org.apache.hadoop.mapred.Ma
                     inner.low = TradePrice;
                 }
             } else {
-                map.put(TradeTime, new Recorder(Integer.parseInt(TradeTimeRaw),
-                        Integer.parseInt(TradeTimeRaw),
+                map.put(mapKey, new Recorder(Double.parseDouble(TradeTimeRaw),
+                        Double.parseDouble(TradeTimeRaw),
                         TradePrice,
                         TradePrice,
                         TradePrice,
@@ -99,9 +101,9 @@ public class Mapper extends MapReduceBase implements org.apache.hadoop.mapred.Ma
             // col5：TradeAmount = TradePrice * TradeQty
             double TradeAmount = Double.parseDouble(oneRecord[4]);
 
-            if (map.containsKey(TradeTime)) {
-                Recorder inner = map.get(TradeTime);
-                if (inner.count == Driver.keyCountMap.get(TradeTime)) {
+            if (map.containsKey(mapKey)) {
+                Recorder inner = map.get(mapKey);
+                if (inner.count == Driver.keyCountMap.get(mapKey)) {
                     output.collect(new Text(SecurityID + '#' + TradeTime + OpenIdentifier), new DoubleWritable(inner.open));
                     output.collect(new Text(SecurityID + '#' + TradeTime + CloseIdentifier), new DoubleWritable(inner.close));
                     output.collect(new Text(SecurityID + '#' + TradeTime + LowIdentifier), new DoubleWritable(inner.low));
