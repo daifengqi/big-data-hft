@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cb4e09b-de34-4187-9e67-1e232bf97a14" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/20190102.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../src/main/resources/20190102.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Opencsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Opencsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Reducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Reducer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +25,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -49,12 +46,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Software/hadoop-3.1.4/share/hadoop/yarn" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.13648649" />
   </component>
   <component name="RunManager" selected="Application.Fetch">
@@ -147,6 +145,7 @@
       <workItem from="1641797815008" duration="405000" />
       <workItem from="1641913424606" duration="6869000" />
       <workItem from="1641988327594" duration="2037000" />
+      <workItem from="1642037275454" duration="517000" />
     </task>
     <servers />
   </component>
@@ -163,7 +162,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
