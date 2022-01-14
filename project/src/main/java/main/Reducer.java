@@ -17,19 +17,21 @@ public class Reducer extends MapReduceBase implements org.apache.hadoop.mapred.R
         double vwap = 0;
         double amount = 0;
 
+        double open = 0;
+        double close = 0;
+
         if (key.toString().endsWith(Mapper.OpenIdentifier)) {
             while (values.hasNext()) {
                 DoubleWritable value = values.next();
-                double val = Double.parseDouble(String.valueOf(value));
-                output.collect(new Text(key), new DoubleWritable(val));
+                open = Double.parseDouble(String.valueOf(value));
             }
-
+            output.collect(new Text(key), new DoubleWritable(open));
         } else if (key.toString().endsWith(Mapper.CloseIdentifier)) {
             while (values.hasNext()) {
                 DoubleWritable value = values.next();
-                double val = Double.parseDouble(String.valueOf(value));
-                output.collect(new Text(key), new DoubleWritable(val));
+                close = Double.parseDouble(String.valueOf(value));
             }
+            output.collect(new Text(key), new DoubleWritable(close));
         } else if (key.toString().endsWith(Mapper.HighIdentifier)) {
             while (values.hasNext()) {
                 DoubleWritable value = values.next();

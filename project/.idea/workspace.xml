@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cb4e09b-de34-4187-9e67-1e232bf97a14" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/20190102.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../src/main/resources/20190102.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Opencsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Opencsv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/Reducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Reducer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,19 +53,6 @@
     <property name="project.structure.side.proportion" value="0.13648649" />
   </component>
   <component name="RunManager" selected="Application.Fetch">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Driver (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hook.Driver" />
       <module name="project" />
@@ -147,6 +129,7 @@
       <workItem from="1641797815008" duration="405000" />
       <workItem from="1641913424606" duration="6869000" />
       <workItem from="1641988327594" duration="2037000" />
+      <workItem from="1642136897505" duration="641000" />
     </task>
     <servers />
   </component>
