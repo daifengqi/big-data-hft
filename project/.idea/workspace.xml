@@ -5,10 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cb4e09b-de34-4187-9e67-1e232bf97a14" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190104.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190107.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190108.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190109.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190110.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190111.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190114.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190115.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190116.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190117.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190118.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190121.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190123.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190124.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190125.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190128.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190129.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190130.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/20190131.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tickDataOutput/20190102.csv/._SUCCESS.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tickDataOutput/20190102.csv/.part-00000.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tickDataOutput/20190102.csv/_SUCCESS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hook/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hook/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Fetch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Fetch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/core-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/core-site.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +78,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.13648649" />
   </component>
-  <component name="RunManager" selected="Application.Fetch">
+  <component name="RunManager" selected="Application.Driver">
     <configuration name="Driver (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hook.Driver" />
       <module name="project" />
@@ -114,8 +134,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Fetch" />
         <item itemvalue="Application.Driver" />
+        <item itemvalue="Application.Fetch" />
         <item itemvalue="Application.Fetch (1)" />
         <item itemvalue="Application.Driver (1)" />
         <item itemvalue="Application.Opencsv" />
@@ -155,6 +175,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

@@ -1,0 +1,75 @@
+
+# update stock pool time interval
+# end_date: 20210430
+
+start_date: 20150101
+end_date: 20211028
+utility_data_dir: E:\data\interday
+
+STOCK_POOL_cols:
+  - date
+  - code
+  - LIMIT_UD_t0
+  - LIMIT_UD_t1
+  - LIMIT_UD_filter_t0_t1_1d
+  - ZX_1
+  - SIZE
+  - ADJVWAP
+  - ADJCLOSE
+  - CLOSE
+  - AMOUNT
+  - FF_SIZE
+  - LIQUIDTY
+  - MOMENTUM
+  - RESVOL
+  - SIZENL
+  - SRISK
+  - ADP
+  - BETA
+  - BTOP
+  - EARNYILD
+  - GROWTH
+  - LEVERAGE
+
+# ========== below under the utility_data_dir ==============
+
+STOCK_CODE_file_name: STOCK_CODE # .csv
+
+STOCK_INFO_file_name: STOCK_INFO # .pkl
+STOCK_POOL_basic_file_name: STOCK_POOL_basic # .pkl
+STOCK_POOL_cap_vol_drop20_file_name: STOCK_POOL_cap_vol_drop20 # .pkl
+STOCK_POOL_HS300_file_name: STOCK_POOL_HS300 # .pkl
+STOCK_POOL_ZZ500_file_name: STOCK_POOL_ZZ500 # .pkl
+STOCK_POOL_ZZ800_file_name: STOCK_POOL_ZZ800 # .pkl
+DT_LIST_file_name: DT_LIST # .csv
+# for update stock pool
+HS300_member_file_name: UNIVERSE_000300_SH # .mat
+ZZ500_member_file_name: UNIVERSE_000905_SH # .mat
+FF_CAPITAL_file_name: FF_CAPITAL # .mat
+PRECLOSE_file_name: PRECLOSE
+ISST_file_name: ISST # .mat
+ISTRADEDAY_file_name: ISTRADEDAY # .mat
+RETURN_file_name: RETURN # .mat
+RETURN_TWAP_Q1_file_name: RETURN_Q1 # .mat
+# FIXME
+FCT_HF_TWAP_H1_file_name: FCT_HF_TWAP_H1 # .mat
+ZX_1_file_name: ZX_1 # .mat
+ADJFACTOR_file_name: ADJFACTOR # .mat
+VWAP_file_name: AVGPRICE # .mat
+CLOSE_file_name: CLOSE # .mat
+AMOUNT_file_name: AMOUNT # .mat
+VOLUME_file_name: VOLUME # .mat
+TOTAL_TRADEDAYS_file_name: TOTALTRADEDAYS # .mat
+SIZE_file_name: SIZE # .mat
+LIQUIDTY_file_name: LIQUIDTY # .mat
+MOMENTUM_file_name: MOMENTUM # .mat
+RESVOL_file_name: RESVOL # .mat
+SIZENL_file_name: SIZENL # .mat
+SRISK_file_name: SRISK # .mat
+ADP_file_name: ADP # .mat
+BETA_file_name: BETA # .mat
+BTOP_file_name: BTOP # .mat
+EARNYILD_file_name: EARNYILD # .mat
+GROWTH_file_name: GROWTH # .mat
+LEVERAGE_file_name: LEVERAGE # .mat
+# ================= above under utility_data_dir =================

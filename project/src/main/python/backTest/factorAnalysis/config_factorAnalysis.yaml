@@ -1,0 +1,124 @@
+update: False
+# back test time interval
+# start_date: 20160101
+# !!!!
+# start_date should >20160710 since factor pool start with 20160701
+
+# benchmark_return_basic 20210721
+start_date: 20190101
+end_date: 20190301
+corr_analysis: False
+parallel: False
+N_CPU: 4
+# need config
+# basic stock pool
+group_num: 10
+factor_dir: D:\02PHBS_G2\PHBS_m2\bigDataAnalysis\big-data-hft\project\data\factor
+factor_analysis_res_dir: D:\02PHBS_G2\PHBS_m2\bigDataAnalysis\big-data-hft\project\res\info
+factor_analysis_res_plot_dir: D:\02PHBS_G2\PHBS_m2\bigDataAnalysis\big-data-hft\project\res\plot
+# factor_analysis_res_dir: D:\HX_proj\factorAnalysis\res\00_factor_analysis_res
+# factor_analysis_res_plot_dir: D:\HX_proj\factorAnalysis\res\01_factor_analysis_plot
+benchmark_return_file_name: BENCHMARK_RETURN_basic # .pkl
+stock_pool_file_name: STOCK_POOL_basic # .pkl
+
+
+
+# fdmt stock pool
+# group_num: 3
+# factor_analysis_res_dir: D:\HX_proj\factorAnalysis\res\00_factor_analysis_res_fdmt
+# factor_analysis_res_plot_dir: D:\HX_proj\factorAnalysis\res\01_factor_analysis_plot_fdmt
+# stock_pool_file_name: STOCK_POOL_fdmt # .pkl
+# benchmark_return_file_name: BENCHMARK_RETURN_fdmt # .pkl
+
+utility_data_dir: D:\02PHBS_G2\PHBS_m2\bigDataAnalysis\big-data-hft\project\data\interday
+
+# stock_pool_file_name: STOCK_POOL_ZZ500
+stock_code_file_name: STOCK_CODE # .csv not use
+STOCK_CODE_ref_file_name: SIZE # .mat
+
+# factor_dir: E:\data\Lethe\feature_combined
+factor_pool_dir: 
+factor_basename_list:
+  - final_signal.pkl
+  # - financeData.pkl
+  # - Hachure.pkl
+  # - PulseTable.pkl
+  # - total.pkl
+  # - Williams.pkl
+  # - final_signal.pkl
+#  - Skew.pkl
+#  - Rvar.pkl
+#  - Kurtosis.pkl
+#  - DownwardVol.pkl
+#  - ClosePriceRatio.pkl
+#  - TrendStrength.pkl
+#  - AmtPerTrd.pkl
+#  - AmtperTrd_inFlow.pkl
+#  - AmtperTrd_outFlow.pkl
+#  - ApT_netInFlow_ratio.pkl
+#  - Amt_netInFlow_bigOrder.pkl
+#  - Amt_netInFlow_bigOrder_ratio.pkl
+#  - Mom_bigOrder.pkl
+#  - UID.pkl
+#  - PV_corr1.pkl
+#  - PV_corr2.pkl
+#  - dp_P_Corr.pkl
+#  - dppo_P_Corr.pkl
+#  - dp_dp_corr.pkl
+#  - dppo_dppo_corr.pkl
+#  - dpne_dpne_corr.pkl
+#  - dpne_dppo_corr.pkl
+#  - dppo_dpne_corr.pkl
+
+factor_name_list_pkl: # .pkl
+
+
+
+factor_name_list_mat: # .mat
+
+
+adjfactor_file_name: ADJFACTOR # .mat
+vwap_file_name: AVGPRICE
+close_file_name: CLOSE
+amount_file_name: AMOUNT
+return_file_name: RETURN
+industry_name_file_name: INDUSTRYNAME # .csv
+
+style_factor_name_list:
+  - SIZE
+  - LIQUIDTY
+  # - AMOUNT
+  # - CLOSE
+  # - RETURN
+
+all_barra_factor_name_list:
+  - SIZE
+  - LIQUIDTY
+  - MOMENTUM
+  - RESVOL
+  - SIZENL
+  - SRISK
+  - BETA
+  - BTOP
+  - EARNYILD
+  - GROWTH
+  - LEVERAGE
+  # - AMOUNT
+  # - CLOSE
+  # - RETURN
+
+
+factor_analysis_res_file_name_list:
+  - 00_factor_value_df
+  - 01_factor_describe_df
+  - 02_IC_th_df
+  - 02_IC_th_all_barra_df
+  - 03_long_excess_return_th_df
+  - 04_group_excess_return_th_dict
+  - 05_style_analysis_res_dict
+  - 06_long_short_return_th_df
+  - 07_factor_return_th_df
+  - 08_benchmark_return_th_df
+  - 09_group_return_th_dict
+
+
